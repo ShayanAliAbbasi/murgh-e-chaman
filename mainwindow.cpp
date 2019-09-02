@@ -2256,7 +2256,12 @@
             }
             if (meter_it != Meter_map.end())
             {
-                ui->textEdit->insertHtml(u8"<span style='color:grey'>" + QString::fromStdWString(meter_it->second) + u8"</span> ");
+                QString meter_name = QString::fromStdWString(meter_it->second);
+
+                if (aw.is_tasbeegh_o_azala)
+                    meter_name.insert(meter_name.size()-1, L'ا');
+
+                ui->textEdit->insertHtml(u8"<span style='color:grey'>" + meter_name + u8"</span> ");
             }
 
             // Diplaying binary, tehleel and words in table format to keep alignment
